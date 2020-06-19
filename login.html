@@ -1,0 +1,35 @@
+<html>
+<body>
+    <input id="username" value="2012020045"/>
+    <input id="password" value="lxf"/>
+    <button id="login">登陆</button>
+    
+<script src="jquery-3.4.1.js"></script>
+
+
+<script>
+
+$(function(){
+    $("#login").click(function(){
+        $.ajax({
+            method:"POST"
+            ,url:"http://localhost:8585/login"
+            , contentType:"application/JSON"
+            ,data:JSON.strintify({username:$("#username").val(),password:$("#password").val()})
+            ,xhrFields:{
+                withCredentials:true
+            }
+            
+            
+            ,success:function(data){   
+                if(data){
+                    window.location.href="./test.html"
+                }
+        }});
+    })
+
+})
+</script>
+
+<body>
+<html>
